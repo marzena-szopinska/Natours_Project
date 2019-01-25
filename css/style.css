@@ -67,6 +67,10 @@ body {
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 35px;
+  /* fire the animation */
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
 }
 
 .heading-primary-sub {
@@ -76,4 +80,21 @@ body {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 17.4px;
+}
+
+/* fade in from left animation */
+@keyframes moveInLeft {
+  0% { /* initial state (before animation starts ) */
+    opacity: 0; /* hide the text */
+    transform: translateX(-100px);/* move the text to the left */
+  }
+
+  80% {
+    transform: translateX(10px); /* move the text a little bit to the right from its original position */
+  }
+
+  100% { /* final state */
+    opacity: 1; /* make the text completaly visable */
+    transform: translateX(0); /* text comes back to its original position */
+  }
 }
