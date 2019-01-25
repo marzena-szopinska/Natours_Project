@@ -102,7 +102,7 @@ body {
 
   100% { /* final state */
     opacity: 1; /* make the text completaly visable */
-    transform: translateX(0); /* text comes back to its original position */
+    transform: translate(0); /* text comes back to its original position */
   }
 }
 
@@ -119,7 +119,19 @@ body {
 
   100% { /* final state */
     opacity: 1; /* make the text completaly visable */
-    transform: translateX(0); /* text comes back to its original position */
+    transform: translate(0); /* text comes back to its original position */
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
   }
 }
 
@@ -137,6 +149,7 @@ body {
   border-radius: 100px;
   /* animate properties */
   transition: all .2s;
+  position: relative;
 }
 
 .btn:hover {
@@ -156,4 +169,40 @@ body {
 .btn-white {
   background-color: #fff;
   color: #777;
+}
+
+/* creates the same element as a button (copy)*/
+.btn::after { /* will appear as a child of a button */
+  content: "";
+  display: inline-block;
+  height: 100%; /* full height of the button (parent) */
+  width: 100%; /* full width of the button (parent)*/
+  border-radius: 100px;
+  /* hide it under a button */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  /* animate */
+  transition: all .4s;
+}
+
+.btn-white::after {
+  background-color: #fff;
+}
+
+.btn:hover::after {
+  /* make the element bigger */
+  transform: scaleX(1.4) scaleY(1.6);
+  /* fade element out */
+  opacity: 0;
+}
+
+.btn-animated {
+  /* fire up animation */
+  animation: moveInBottom .5s ease-out .75s; /* delay : .75s */
+  /* automaticaly apply the styles up to zero percent before the animation starts. (without that because we applied delay, the button would be visable before the animation starts) */
+  animation-fill-mode: backwards;
+  /* fix the shaky animation */
+  backface-visibility: hidden;
 }
