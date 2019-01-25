@@ -52,6 +52,7 @@ body {
   top: 40%; /* <- in relation to parent element */
   left: 50%; /* <- in relation to parent element */
   transform: translate(-50%, -50%); /* <- in relation to the element itself */
+  text-align: center; /* center the text */
 }
 
 .heading-primary {
@@ -60,6 +61,8 @@ body {
   text-transform: uppercase;
   /* prevent shaky end of animation */
   backface-visibility: hidden;
+  /* make some space betwen the button and the heading */
+  margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -118,4 +121,39 @@ body {
     opacity: 1; /* make the text completaly visable */
     transform: translateX(0); /* text comes back to its original position */
   }
+}
+
+.btn:link,
+.btn:visited {
+  /* make the text uppercase */
+  text-transform: uppercase;
+  /* remove default underline */
+  text-decoration: none;
+  /* add some padding */
+  padding: 15px 40px;
+  /* make it inline-block to apply padding */
+  display: inline-block;
+  /* round the corners of a button */
+  border-radius: 100px;
+  /* animate properties */
+  transition: all .2s;
+}
+
+.btn:hover {
+  /* move the button up */
+  transform: translateY(-3px);
+  /* apply subtle shadow */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+}
+
+.btn:active {
+  /* move the button down */
+  transform: translateY(-1px); /* not in relation to hover! */
+  /* decrease the shadow */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
 }
