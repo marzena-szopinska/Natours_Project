@@ -8,19 +8,29 @@ Dark green: #28b485
 */
 
 /* reset */
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit;
 }
 /* basic set up */
+
+html { /* the root */
+  /* 100% = 16px */
+  /* set the font to 10px */
+  font-size: 62.5%; /* 10px = 1 rem */
+}
+
 body {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  /* font-size: 16px; */
   line-height: 1.7;
   color: #777;
-  padding: 30px;
+  padding: 3rem; /* 30px / 10px = 3rem */
+  box-sizing: border-box;
 }
 
 .header {
@@ -38,12 +48,12 @@ body {
 
 .logo-box {
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 
 .logo {
-  height: 35px;
+  height: 3.5rem;
 }
 
 .text-box {
@@ -62,16 +72,16 @@ body {
   /* prevent shaky end of animation */
   backface-visibility: hidden;
   /* make some space betwen the button and the heading */
-  margin-bottom: 60px;
+  margin-bottom: 6rem;
 }
 
 .heading-primary-main {
   /* break/separate the text */
   display: block;
   /* style the text */
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
+  letter-spacing: 3.5rem;
   /* fire the animation */
   animation-name: moveInLeft;
   animation-duration: 1s;
@@ -82,9 +92,9 @@ body {
   /* break/separate the text */
   display: block;
   /* style the text */
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 17.4px;
+  letter-spacing: 1.75rem;
   /* animation */
   animation: moveInRight 1s ease-out;
 }
@@ -93,11 +103,11 @@ body {
 @keyframes moveInLeft {
   0% { /* initial state (before animation starts ) */
     opacity: 0; /* hide the text */
-    transform: translateX(-100px);/* move the text to the left */
+    transform: translateX(-10rem);/* move the text to the left */
   }
 
   80% {
-    transform: translateX(10px); /* move the text a little bit to the right from its original position */
+    transform: translateX(1rem); /* move the text a little bit to the right from its original position */
   }
 
   100% { /* final state */
@@ -110,11 +120,11 @@ body {
 @keyframes moveInRight {
   0% { /* initial state (before animation starts ) */
     opacity: 0; /* hide the text */
-    transform: translateX(100px);/* move the text to the right */
+    transform: translateX(10rem);/* move the text to the right */
   }
 
   80% {
-    transform: translateX(-10px); /* move the text a little bit to the left from its original position */
+    transform: translateX(-1rem); /* move the text a little bit to the left from its original position */
   }
 
   100% { /* final state */
@@ -126,7 +136,7 @@ body {
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(3rem);
   }
 
   100% {
@@ -137,16 +147,17 @@ body {
 
 .btn:link,
 .btn:visited {
+  font-size: 1.6rem;
   /* make the text uppercase */
   text-transform: uppercase;
   /* remove default underline */
   text-decoration: none;
   /* add some padding */
-  padding: 15px 40px;
+  padding: 1.5rem 4rem;
   /* make it inline-block to apply padding */
   display: inline-block;
   /* round the corners of a button */
-  border-radius: 100px;
+  border-radius: 10rem;
   /* animate properties */
   transition: all .2s;
   position: relative;
@@ -156,14 +167,14 @@ body {
   /* move the button up */
   transform: translateY(-3px);
   /* apply subtle shadow */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
 }
 
 .btn:active {
   /* move the button down */
   transform: translateY(-1px); /* not in relation to hover! */
   /* decrease the shadow */
-  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
 }
 
 .btn-white {
@@ -177,7 +188,7 @@ body {
   display: inline-block;
   height: 100%; /* full height of the button (parent) */
   width: 100%; /* full width of the button (parent)*/
-  border-radius: 100px;
+  border-radius: 10rem;
   /* hide it under a button */
   position: absolute;
   top: 0;
@@ -201,7 +212,8 @@ body {
 .btn-animated {
   /* fire up animation */
   animation: moveInBottom .5s ease-out .75s; /* delay : .75s */
-  /* automaticaly apply the styles up to zero percent before the animation starts. (without that because we applied delay, the button would be visable before the animation starts) */
+  /* automaticaly apply the styles up to zero percent before the animation starts. (without that because we applied delay,
+  the button would be visable before the animation starts) */
   animation-fill-mode: backwards;
   /* fix the shaky animation */
   backface-visibility: hidden;
