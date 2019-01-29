@@ -1,0 +1,215 @@
+$color-primary: #55c57a; // green
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+
+/* reset */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+/* basic set up */
+
+html { /* the root */
+  /* 100% = 16px */
+  /* set the font to 10px */
+  font-size: 62.5%; /* 10px = 1 rem */
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem; /* 30px / 10px = 3rem */
+  box-sizing: border-box;
+}
+
+.header {
+  /* set the size of the header */
+  height: 95vh;
+  /* set the image background to cover up the whole header with green gradiet on top of it */
+  background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)) ,url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  /* clip a part of the image background */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* set origin */
+  position: relative;
+}
+
+.header__logo-box {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+}
+
+.header__logo {
+  height: 3.5rem;
+}
+
+.header__text-box {
+  /* center the box container */
+  position: absolute;
+  top: 40%; /* <- in relation to parent element */
+  left: 50%; /* <- in relation to parent element */
+  transform: translate(-50%, -50%); /* <- in relation to the element itself */
+  text-align: center; /* center the text */
+}
+
+.heading-primary {
+  color: #fff;
+  /* make the text uppercase */
+  text-transform: uppercase;
+  /* prevent shaky end of animation */
+  backface-visibility: hidden;
+  /* make some space betwen the button and the heading */
+  margin-bottom: 6rem;
+}
+
+.heading-primary--main {
+  /* break/separate the text */
+  display: block;
+  /* style the text */
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+  /* fire the animation */
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+
+.heading-primary--sub {
+  /* break/separate the text */
+  display: block;
+  /* style the text */
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.75rem;
+  /* animation */
+  animation: moveInRight 1s ease-out;
+}
+
+/* fade in from left animation */
+@keyframes moveInLeft {
+  0% { /* initial state (before animation starts ) */
+    opacity: 0; /* hide the text */
+    transform: translateX(-10rem);/* move the text to the left */
+  }
+
+  80% {
+    transform: translateX(1rem); /* move the text a little bit to the right from its original position */
+  }
+
+  100% { /* final state */
+    opacity: 1; /* make the text completaly visable */
+    transform: translate(0); /* text comes back to its original position */
+  }
+}
+
+/* fade in from right animation */
+@keyframes moveInRight {
+  0% { /* initial state (before animation starts ) */
+    opacity: 0; /* hide the text */
+    transform: translateX(10rem);/* move the text to the right */
+  }
+
+  80% {
+    transform: translateX(-1rem); /* move the text a little bit to the left from its original position */
+  }
+
+  100% { /* final state */
+    opacity: 1; /* make the text completaly visable */
+    transform: translate(0); /* text comes back to its original position */
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+.btn:link,
+.btn:visited {
+  font-size: 1.6rem;
+  /* make the text uppercase */
+  text-transform: uppercase;
+  /* remove default underline */
+  text-decoration: none;
+  /* add some padding */
+  padding: 1.5rem 4rem;
+  /* make it inline-block to apply padding */
+  display: inline-block;
+  /* round the corners of a button */
+  border-radius: 10rem;
+  /* animate properties */
+  transition: all .2s;
+  position: relative;
+}
+
+.btn:hover {
+  /* move the button up */
+  transform: translateY(-3px);
+  /* apply subtle shadow */
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
+}
+
+.btn:active {
+  /* move the button down */
+  transform: translateY(-1px); /* not in relation to hover! */
+  /* decrease the shadow */
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+}
+
+.btn--white {
+  background-color: #fff;
+  color: #777;
+}
+
+/* creates the same element as a button (copy)*/
+.btn::after { /* will appear as a child of a button */
+  content: "";
+  display: inline-block;
+  height: 100%; /* full height of the button (parent) */
+  width: 100%; /* full width of the button (parent)*/
+  border-radius: 10rem;
+  /* hide it under a button */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  /* animate */
+  transition: all .4s;
+}
+
+.btn--white::after {
+  background-color: #fff;
+}
+
+.btn:hover::after {
+  /* make the element bigger */
+  transform: scaleX(1.4) scaleY(1.6);
+  /* fade element out */
+  opacity: 0;
+}
+
+.btn--animated {
+  /* fire up animation */
+  animation: moveInBottom .5s ease-out .75s; /* delay : .75s */
+  /* automaticaly apply the styles up to zero percent before the animation starts. (without that because we applied delay,
+  the button would be visable before the animation starts) */
+  animation-fill-mode: backwards;
+  /* fix the shaky animation */
+  backface-visibility: hidden;
+}
