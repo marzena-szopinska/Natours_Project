@@ -1,0 +1,45 @@
+/* fade in from left animation */
+@keyframes moveInLeft {
+  0% { /* initial state (before animation starts ) */
+    opacity: 0; /* hide the text */
+    transform: translateX(-10rem);/* move the text to the left */
+  }
+
+  80% {
+    transform: translateX(1rem); /* move the text a little bit to the right from its original position */
+  }
+
+  100% { /* final state */
+    opacity: 1; /* make the text completaly visable */
+    transform: translate(0); /* text comes back to its original position */
+  }
+}
+
+/* fade in from right animation */
+@keyframes moveInRight {
+  0% { /* initial state (before animation starts ) */
+    opacity: 0; /* hide the text */
+    transform: translateX(10rem);/* move the text to the right */
+  }
+
+  80% {
+    transform: translateX(-1rem); /* move the text a little bit to the left from its original position */
+  }
+
+  100% { /* final state */
+    opacity: 1; /* make the text completaly visable */
+    transform: translate(0); /* text comes back to its original position */
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
