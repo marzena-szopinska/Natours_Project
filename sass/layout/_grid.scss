@@ -1,0 +1,26 @@
+.row {
+  max-width: $grid-width;
+  background-color: gray;
+  /* center the row */
+  margin: 0 auto;
+  // selects every row apart from the last one
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+  }
+  // include mixin that clears float
+  @include clearfix;
+
+  [class^='col-'] {
+
+  }
+
+  .col-1-of-2 {
+    width: calc((100% -  #{$gutter-horizontal}) / 2);
+    background-color: orangered;
+    float: left;
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+    }
+  }
+
+}
