@@ -1,7 +1,6 @@
 .row {
   max-width: $grid-width;
-  background-color: #999;
-  color: #fff;
+  color: #000;
   text-align: center;
   /* center the row */
   margin: 0 auto;
@@ -13,7 +12,6 @@
   @include clearfix;
   // select all the columns
   [class^='col-'] {
-    background-color: green;
     float: left;
     padding: 2rem 2rem;
     &:not(:last-child) {
