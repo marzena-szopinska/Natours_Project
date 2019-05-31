@@ -1,0 +1,46 @@
+.composition {
+  position: relative;
+
+  &__photo {
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+    border-radius: 2px;
+    // positions images
+    position: absolute;
+    // set z-index on all of the inmages
+    z-index: 10;
+    // transition all of the properties
+    transition: all .2s;
+    // make space between the border/outline and the image
+    outline-offset: 2rem;
+
+    &--p1 {
+      left: 0;
+      top: -2rem;
+    }
+
+    &--p2 {
+      right: 0;
+      top: 2rem;
+    }
+
+    &--p3 {
+      left: 20%;
+      top: 10rem;
+    }
+
+    &:hover {
+      // add a green border/outline to the hovered image (keep in mind that you cant achieve the space beween an img and a border with border property)
+      outline: 1.5rem solid $color-primary;
+      // scale an image and move it up
+      transform: scale(1.05) translateY(-.5rem);
+      box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+      z-index: 20;
+    }
+  }
+
+  &:hover &__photo:not(:hover) {
+    // apply that style to image element that isnt hovered
+      transform: scale(.95);
+  }
+}
