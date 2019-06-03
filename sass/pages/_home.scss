@@ -6,3 +6,22 @@
   margin-top: -20vh; // 95 - 75 = 20vh
 
 }
+
+
+.section-features {
+  padding: 20rem 0;
+  background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)) ,url(../img/nat-4.jpg);
+  background-size: cover;
+  // move up to hide the gap between sections
+  margin-top: -10rem;
+  // SKEWING
+    // SKEW the entire section
+    transform: skewY(-7deg);
+    // SKEW childer in an opposite direction
+    & > * { // grab all direct children
+      transform: skewY(7deg);
+    }
+  // END OF SKEWING
+
+
+}
