@@ -47,6 +47,15 @@
     }
   }
 
+  &--green {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+
   /* creates the same element as a button (copy)*/
   &::after { /* will appear as a child of a button */
     content: "";

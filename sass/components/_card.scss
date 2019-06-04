@@ -62,6 +62,9 @@
     // clip the image
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    // make sure the corners are rounded
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
     // blend backgrounds
     background-blend-mode: screen; // the orange color with the image
     &--1 {
